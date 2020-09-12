@@ -1,0 +1,23 @@
+.pagination__container{
+    /* position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%); */
+    text-align-last: center;
+    padding: 30px;
+}
+
+.pagination{
+    border: 1px solid #000;
+    padding: 4px 9px;
+    text-decoration: none;
+    margin: 4px;
+    border-radius: 3px;
+    font-weight: 600;
+    color: #918d8d;
+}
+
+.activeLink{
+    background-color: #727272;
+    color:#fff;
+}

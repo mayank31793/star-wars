@@ -1,0 +1,30 @@
+.searchbar__container{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.search__input{
+    border: none;
+    width: 200px;
+    /* border-bottom: 2px solid #7e7eba; */
+}
+
+.searchInput__container{
+    border: 2px solid #aeaeae;
+    display: flex;
+    margin-right: 10px;
+}
+
+.searchInput__container .search__navlink{
+    padding: 4px 10px;
+    text-decoration: none;
+    background-color: #aeaeae;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.selectSort{
+    
+}
