@@ -14,7 +14,7 @@ const PersonDetails = ({match:{params:{personId}}}) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`http://swapi.dev/api/people/${personId}`)
+        axios.get(`https://swapi.dev/api/people/${personId}`)
         .then((res) => {
             setLoading(false);
             setPersonData(res.data)

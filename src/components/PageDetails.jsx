@@ -11,7 +11,7 @@ const PageDetails = ({match:{params:{id}}, sort, pageCount}) => {
     const [pageDataPeople,setPageDataPeople] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://swapi.dev/api/people/?page=${id}`)
+        axios.get(`https://swapi.dev/api/people/?page=${id}`)
         .then((res) => {
             setPageData(res.data)
             setPageDataPeople(res.data.results)
