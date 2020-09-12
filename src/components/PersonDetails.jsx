@@ -34,7 +34,7 @@ const PersonDetails = ({match:{params:{personId}}}) => {
         })
     },[personId])
 
-    console.log(personData.species, species);
+    // console.log(personData.species, species);
 
     if(loading){
         return <Loading />
