@@ -2,12 +2,6 @@
 
 }
 
-@media only screen and (max-width: 1280px){
-    .search__container ul{
-        grid-template-columns: auto auto;
-    }
-}
-
 .search__container ul{
     display: grid;
     grid-template-columns: auto auto auto;
@@ -36,4 +30,12 @@
 .not__found p{
     text-align: center;
     font-size-adjust: 24px;
+}
+
+.search__container ul li:hover{
+    background-color:#e5e5e5;
+}
+
+.listitem h4{
+    font-size: 24px;
 }

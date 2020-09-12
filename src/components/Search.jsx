@@ -47,6 +47,11 @@ const Search = ({match,location,history,search}) => {
             });
         }
     },[location])
+
+    const dateFormat = (dateFormat) => {
+        var newDate = new Date(dateFormat);
+        return `${newDate.getDate()}-${newDate.getMonth()}-${newDate.getFullYear()}`
+    }
     
     if(loading){
         return <Loading />
@@ -61,8 +66,14 @@ const Search = ({match,location,history,search}) => {
             <ul>
                 {
                     searchArray.length > 0 ?
-                    searchArray.map((response,i) => (
-                        <li key={i}><NavLink to={`/person/${response.url.split("/")[response.url.split("/").length - 2]}`}>{response.name}</NavLink></li>
+                    searchArray.map((res,i) => (
+                        <NavLink to={`/person/${res.url.split("/")[res.url.split("/").length - 2]}`} key={i} className="listitem">
+                            <li key={i}>
+                                <h4>{res.name}</h4>
+                                <p><b>Birth Year:</b>{res.birth_year}</p>
+                                <p><b>Date Created:</b>{dateFormat(res.created)}</p>
+                            </li>
+                        </NavLink>
                     )):
                     <li className="not__found">
                         <FontAwesomeIcon icon={faExclamation} />

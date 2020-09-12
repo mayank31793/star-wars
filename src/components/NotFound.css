@@ -1,0 +1,28 @@
+.notfound__container{
+    margin: 0 auto;
+    width: 80%;
+}
+
+.notfound__container p{
+    text-align:center;
+    font-size: 24px;
+    opacity: 0.4;
+}
+
+.notfound__icontext{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.notfound__icontext svg{
+    width: 100% !important;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+.backToHome{
+    font-weight: 600;
+    opacity: 1;
+}

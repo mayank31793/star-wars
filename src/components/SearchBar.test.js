@@ -9,8 +9,13 @@ import SearchBar from './SearchBar';
 configure({adapter: new Adapter()});
 
 describe('<SearchBar />',() => {
+    let wrapper;
+
+    beforeEach(() => {
+        wrapper = shallow(<SearchBar />);
+    });
+
     it('should render <SearchBar /> component',() => {
-        const wrapper = shallow(<SearchBar />);
-        expect(wrapper.find())
+        wrapper.setProps({search:""});
     });
 })

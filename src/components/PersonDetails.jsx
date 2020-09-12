@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMobile, faQuestion, faUserCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faRobot, faQuestion, faUserCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Loading from './Loading';
 
 import './PersonDetails.css';
@@ -25,7 +25,7 @@ const PersonDetails = ({match:{params:{personId}}}) => {
                 console.log('not empty');
                 axios.get(response.species[0])
                 .then((res) => {
-                    setSpecies(res.data.name)
+                    setSpecies(res.data.classification)
                 })
             }
             else{
@@ -42,9 +42,18 @@ const PersonDetails = ({match:{params:{personId}}}) => {
 
     return (
         <div className="personDetails__container">
-            <p>this is person numner {personData.name}</p>
-            <p>this is person numner {personData.height}</p>
-            {species == 'Droid' ? <FontAwesomeIcon icon={faMobile} /> : species == 'Human' ? <FontAwesomeIcon icon={faUserCircle} />: <FontAwesomeIcon icon={faQuestion} /> }
+            <div className="person__icon">
+                {species == 'artificial' ? <FontAwesomeIcon icon={faRobot} /> : species == 'mammal' ? <FontAwesomeIcon icon={faUserCircle} />: <FontAwesomeIcon icon={faQuestion} /> }
+            </div>
+            <div>
+                <p><b>Name:</b> {personData.name}</p>
+                <p><b>Height:</b> {personData.height}</p>
+                <p><b>Mass:</b> {personData.mass}</p>
+                <p><b>Hair Color:</b> {personData.hair_color}</p>
+                <p><b>SKin Color:</b> {personData.skin_color}</p>
+                <p><b>Eye Color:</b> {personData.eye_color}</p>
+                <p><b>Gender:</b> {personData.gender}</p>
+            </div>
         </div>
     );
 }

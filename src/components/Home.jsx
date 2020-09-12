@@ -12,6 +12,7 @@ import Search from './Search';
 import './Home.css';
 import Loading from './Loading';
 import SearchBar from './SearchBar';
+import NotFound from './NotFound';
 
 const Home = (props) => {
     const [data,setData] = useState({});
@@ -68,6 +69,7 @@ const Home = (props) => {
                 <Route path="/people" exact render={(props) => <Search {...props} people={people} search={search} />} />
                 <Route path="/page/:id" exact render={(props) => <PageDetails {...props} sort={sort} pageCount={pageCount} />} />
                 <Route path="/person/:personId" exact render={(props) => <PersonDetails {...props} />} />
+                <Route path='*' exact component={NotFound} />
             </Switch>
         </div>
     );

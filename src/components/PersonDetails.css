@@ -3,4 +3,15 @@
     margin: 0 auto;
     box-shadow: 1px 2px 10px #9c9c9c;
     padding: 20px;
+    display: flex;
+    margin-top: 20px;
+}
+
+.person__icon{
+    width: 100px;
+}
+
+.person__icon svg{
+    width: 80px !important;
+    height: 80px;
 }

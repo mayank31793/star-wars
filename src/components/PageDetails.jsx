@@ -32,33 +32,35 @@ const PageDetails = ({match:{params:{id}}, sort, pageCount}) => {
                     [...pageDataPeople].sort((a,b) => (
                         a.name.toLowerCase() > b.name.toLowerCase()
                     )).map((res,i) => (
-                        <li key={i}>
-                            <NavLink to={`/person/${res.url.split("/")[res.url.split("/").length - 2]}`}>
-                                {res.name}
-                            </NavLink>
-                            <p>{dateFormat(res.created)}</p>
-                        </li>
+                        <NavLink to={`/person/${res.url.split("/")[res.url.split("/").length - 2]}`} key={i} className="listitem">
+                            <li key={i}>
+                                <h4>{res.name}</h4>
+                                <p><b>Date Created:</b>{dateFormat(res.created)}</p>
+                            </li>
+                        </NavLink>
                     ))
                     :
                     sort == 'date'?
                     [...pageDataPeople].sort((a,b) => (
                         dateFormat(a.created) > dateFormat(b.created)
                     )).map((res,i) => (
-                        <li key={i}>
-                            <NavLink to={`/person/${res.url.split("/")[res.url.split("/").length - 2]}`}>
-                                {res.name}
-                            </NavLink>
-                            <p>{dateFormat(res.created)}</p>
-                        </li>
+                        <NavLink to={`/person/${res.url.split("/")[res.url.split("/").length - 2]}`} key={i} className="listitem">
+                            <li key={i}>
+                                <h4>{res.name}</h4>
+                                <p><b>Date Created:</b>{dateFormat(res.created)}</p>
+                            </li>
+                        </NavLink>
                     ))
                     :
                     pageDataPeople.map((res,i) => (
-                        <li key={i}>
-                            <NavLink to={`/person/${res.url.split("/")[res.url.split("/").length - 2]}`}>
-                                {res.name}
-                            </NavLink>
-                            <p>{dateFormat(res.created)}</p>
-                        </li>
+                        <NavLink to={`/person/${res.url.split("/")[res.url.split("/").length - 2]}`} key={i} className="listitem">
+                            <li key={i}>
+                                <h4>{res.name}</h4>
+                                <p><b>Birth Year:</b>{res.birth_year}</p>
+                                <p><b>Date Created:</b>{dateFormat(res.created)}</p>
+
+                            </li>
+                        </NavLink>
                     ))
                 }
             </ul>
