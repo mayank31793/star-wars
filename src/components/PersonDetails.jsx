@@ -23,7 +23,7 @@ const PersonDetails = ({match:{params:{personId}}}) => {
         .then((response) => {
             if(response.species.length != 0){
                 console.log('not empty');
-                axios.get(response.species[0])
+                axios.get(`${response.species[0]}`)
                 .then((res) => {
                     setSpecies(res.data.classification)
                 })
