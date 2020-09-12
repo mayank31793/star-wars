@@ -23,7 +23,8 @@ const PersonDetails = ({match:{params:{personId}}}) => {
         .then((response) => {
             if(response.species.length != 0){
                 console.log('not empty');
-                axios.get(`${response.species[0]}`)
+                var replaceStr = response.species[0].replace("http","https");
+                axios.get(replaceStr)
                 .then((res) => {
                     setSpecies(res.data.classification)
                 })
