@@ -24,7 +24,7 @@ const PersonDetails = ({match:{params:{personId}}}) => {
             if(response.species.length != 0){
                 console.log('not empty');
                 var replaceStr = response.species[0].replace("http","https");
-                axios.get(replaceStr)
+                axios.get(`${replaceStr}`)
                 .then((res) => {
                     setSpecies(res.data.classification)
                 })
