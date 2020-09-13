@@ -18,6 +18,7 @@ const PersonDetails = ({match:{params:{personId}}}) => {
         .then((res) => {
             setLoading(false);
             setPersonData(res.data)
+            console.log("reaching here",res.data)
             return res.data
         })
         .then((response) => {
