@@ -22,11 +22,10 @@ const PersonDetails = ({match:{params:{personId}}}) => {
         })
         .then((response) => {
             if(response.species.length != 0){
-                console.log('not empty');
+                console.log('not empty',response.species[0].replace("http","https"));
                 // var replaceStr = response.species[0].replace("http","https");
-                var windowUrl = response.species[0];
-                var replaceStr = windowUrl.split('/')[windowUrl.split('/').length - 2]
-                axios.get(`${window.location.hostname}/person/${replaceStr}`)
+                // var replaceStr = window.location.pathname.split('/')[window.location.pathname.split('/').length - 2]
+                axios.get(`https://cors-anywhere.herokuapp.com/${response.species[0]}`)
                 .then((res) => {
                     setSpecies(res.data.classification)
                 })
