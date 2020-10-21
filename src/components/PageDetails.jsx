@@ -30,7 +30,7 @@ const PageDetails = ({match:{params:{id}}, sort, pageCount}) => {
                 {
                     sort == 'name' ?
                     [...pageDataPeople].sort((a,b) => (
-                        a.name.toLowerCase() > b.name.toLowerCase()
+                        a.name.toLowerCase() > b.name.toLowerCase()?-1:1
                     )).map((res,i) => (
                         <NavLink to={`/person/${res.url.split("/")[res.url.split("/").length - 2]}`} key={i} className="listitem">
                             <li key={i}>
@@ -42,7 +42,7 @@ const PageDetails = ({match:{params:{id}}, sort, pageCount}) => {
                     :
                     sort == 'date'?
                     [...pageDataPeople].sort((a,b) => (
-                        dateFormat(a.created) > dateFormat(b.created)
+                        dateFormat(a.created) > dateFormat(b.created)?-1:1
                     )).map((res,i) => (
                         <NavLink to={`/person/${res.url.split("/")[res.url.split("/").length - 2]}`} key={i} className="listitem">
                             <li key={i}>
