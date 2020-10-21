@@ -3,13 +3,13 @@ import { NavLink } from 'react-router-dom';
 
 import './SearchBar.css';
 
-const SearchBar = ({sortArray,handleSearch,sort,search}) => {
+const SearchBar = ({sortArray,handleSearch,sort,search,handleNavlink}) => {
 
     return (
         <div className="searchbar__container">
             <div className="searchInput__container">
                 <input type="text" value={search} className="search__input" onChange={handleSearch} />
-                <NavLink className="search__navlink" to={{
+                <NavLink className="search__navlink" id="navLinkId" to={{
                     pathname:"/people",
                     search: `?search=${search.replace(" ","+")}`,
                     state:{page:1}

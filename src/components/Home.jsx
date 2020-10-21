@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState } from 'react';
 
 import { Route, Switch, Redirect, NavLink } from 'react-router-dom';
 import axios from 'axios';
@@ -21,7 +21,8 @@ const Home = (props) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [sort,setSort] = useState('Sort By');
-    const [search,setSearch] = useState(window.location.search);   
+    const [search,setSearch] = useState(window.location.search);
+    
 
     useEffect(() => {
         axios.get('https://swapi.dev/api/people/')
@@ -49,6 +50,8 @@ const Home = (props) => {
     const handleSearch = (e) => {
         var lowerCase = e.target.value.toLowerCase();
         setSearch(lowerCase);
+        // console.log('this is navlivk click',handleNavlink)
+        document.getElementById('navLinkId').click();
     }
 
     if(loading){
@@ -66,7 +69,7 @@ const Home = (props) => {
                 <Route exact path="/">
                     <Redirect to="/page/1" />
                 </Route>
-                <Route path="/people" exact render={(props) => <Search {...props} people={people} search={search} />} />
+                <Route path="/people" exact render={(props) => <Search {...props} sort={sort} people={people} search={search} />} />
                 <Route path="/page/:id" exact render={(props) => <PageDetails {...props} sort={sort} pageCount={pageCount} />} />
                 <Route path="/person/:personId" exact render={(props) => <PersonDetails {...props} />} />
                 <Route path='*' exact component={NotFound} />

@@ -10,8 +10,6 @@ import Pagination from './Pagination';
 
 const Search = ({match,location,history,search}) => {
 
-    console.log(location);
-
     const [loading, setLoading] = useState(true);
     const [searchObject,setSearchObject] = useState({});
     const [searchCount,setSearchCount] = useState(history.length);
@@ -21,28 +19,24 @@ const Search = ({match,location,history,search}) => {
         if(location.state != undefined){
             axios.get(`https://swapi.dev/api/people/?search=${location.search.split("=")[1].toLowerCase()}&page=${location.state.page}`)
             .then((res) => {
-                console.log(res.data)
                 setLoading(false);
                 setSearchObject(res.data);
                 setSearchCount(res.data.count);
                 return res.data;
             })
             .then((response) => {
-                console.log(response.results);
                 setSearchArray(response.results);
             });
         }
         else{
             axios.get(`https://swapi.dev/api/people/?search=${location.search.split("=")[1].toLowerCase()}&page=1`)
             .then((res) => {
-                console.log(res.data)
                 setLoading(false);
                 setSearchObject(res.data);
                 setSearchCount(res.data.count);
                 return res.data;
             })
             .then((response) => {
-                console.log(response.results);
                 setSearchArray(response.results);
             });
         }

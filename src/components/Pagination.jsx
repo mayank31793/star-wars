@@ -11,8 +11,6 @@ const Pagination = ({pageCount,searchPagination,location}) => {
         newArr[i] = i+1;
     }
 
-    console.log("searchPagination",searchPagination,location);
-
     const pageDefault = typeof location == 'undefined' ? 1 : location.state == undefined ? 1 : location.state.page;
 
     return (
